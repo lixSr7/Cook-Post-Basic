@@ -21,6 +21,7 @@ import { ConfigurationIcon } from "./Icons.jsx";
 
 import { useState } from "react";
 import { FormUpdatePost } from "./Forms.jsx";
+import PostReportButton from "./PostReportButton.jsx";
 
 import axios from "axios";
 
@@ -29,6 +30,13 @@ export default function ButtonOptions({ Id, OnUpdatePost }) {
     {
         //* ACTIONS 
     }
+
+    const defaultUserData = {
+        NickName: 'BZRP',
+        FullName: 'Brian Zambell Rodriguez Pina',
+        PhotoURL: "https://www.los40.do/wp-content/uploads/2023/10/16880295953133-e1696339269651-300x300.jpeg",
+        lastLogin: '2023-02-20T10:30:40'
+    };
 
     const [isSendingDeletePost, setIsSendingDeletePost] = useState(false);
 
@@ -110,17 +118,19 @@ export default function ButtonOptions({ Id, OnUpdatePost }) {
                 <ModalContent>
                     {(onClose) => (
                         <>
-                            {/* <ModalHeader className="flex flex-col gap-1">Modal Title</ModalHeader> */}
                             <ModalBody>
                                 {selectedAction === "Report" && (
-                                    // Contenido específico para la acción de copiar
-                                    <h1>Hola Report</h1>
+                                    <article className=" h-[300px] w-full grid place-content-center gap-4">
+                                        <h3 className=" text-opacity-60">
+                                            ¿Deseas generar un reporte de este Post?
+                                        </h3>
+                                        <PostReportButton postData={defaultUserData} />
+                                    </article>
                                 )}
                                 {selectedAction === "Edit" && (
                                     <FormUpdatePost handleClose={onClose} Id={Id} OnUpdatePost={OnUpdatePost} />
                                 )}
                                 {selectedAction === "Delete" && (
-                                    // Botones específicos para la acción de eliminar
                                     <article className="h-[300px] w-full grid place-content-center gap-3">
                                         <span className=" text-xl text-center text-zinc-400">
                                             ¿Estas seguro que deseas eliminar este Cook?

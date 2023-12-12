@@ -18,16 +18,14 @@ export function PostImage({
   nickname,
   content,
   hastag,
-  followersAmout,
   likesAmout,
   imageURL,
-  commentsAmout,
   phothoURL,
   Id, 
-  OnUpdatePost
+  OnUpdatePost,
+  status
 }) {
   const [isFollowed, setIsFollowed] = useState(false);
-  const [isLike, setIsLike] = useState(false);
 
 
   return (
@@ -41,7 +39,7 @@ export function PostImage({
           <Avatar isBordered color="primary" radius="full" size="md" src={phothoURL} />
           <aside className="flex flex-col gap-1 items-start justify-center">
             <h4 className="text-small font-bold leading-none text-black dark:text-white">
-              {username}
+              {username}{status}
             </h4>
             <h5 className="text-small tracking-tight text-default-400">
               @{nickname}
@@ -131,15 +129,13 @@ export function PostText({
   nickname,
   content,
   hastag,
-  followersAmout,
   likesAmout,
-  commentsAmout,
   phothoURL,
   Id,
-  OnUpdatePost
+  OnUpdatePost,
+  status
 }) {
   const [isFollowed, setIsFollowed] = useState(false);
-  const [isLike, setIsLike] = useState(false);
 
 
   return (
@@ -153,7 +149,7 @@ export function PostText({
           <Avatar isBordered color="primary" radius="full" size="md" src={phothoURL} />
           <aside className="flex flex-col gap-1 items-start justify-center">
             <h4 className="text-small font-bold leading-none text-black dark:text-white">
-              {username}
+              {username} - {status ? 'Inactivo': 'Activo'}
             </h4>
             <h5 className="text-small tracking-tight text-default-400">
               @{nickname}
@@ -177,7 +173,7 @@ export function PostText({
               // toast.success('follow')
             }}
           >
-            {isFollowed ? "Unfollow" : "Follow"}
+            {isFollowed ? "Not Follow" : "Follow"}
           </Button>
 
           {
