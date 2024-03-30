@@ -8,7 +8,7 @@ import {
   Image,
 } from "@nextui-org/react";
 
-import { CommentIcon, HeartIcon, ShareIcon } from "./Icons";
+import { CommentIcon, HeartIcon, ShareIcon } from "../Icons";
 import ButtonOptions from "./ButtonOptions";
 import { useState } from "react";
 

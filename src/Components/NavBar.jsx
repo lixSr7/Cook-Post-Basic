@@ -1,10 +1,17 @@
 // Components
-import { Switch, Listbox, ListboxItem } from "@nextui-org/react";
-import { MoonIcon, SunIcon, HomeIcon, PhotoIcon, BellIcon } from "./Icons";
+import { Switch } from "@nextui-org/react";
+import {
+  MoonIcon,
+  SunIcon,
+  HomeIcon,
+  PhotoIcon,
+  BellIcon,
+  ChatIcon,
+} from "./Icons";
+import { Link } from "react-router-dom";
 
 import {
   Dropdown,
-  Link,
   DropdownTrigger,
   DropdownMenu,
   DropdownItem,
@@ -31,31 +38,28 @@ function NavBar({ TogleTheme }) {
               <Button variant="bordered">Menu Cook</Button>
             </DropdownTrigger>
             <DropdownMenu variant="faded" aria-label="Static Actions">
+              <DropdownItem key="new">Estadisticas</DropdownItem>
 
-              <DropdownItem key="new">
-                Estadisticas
-              </DropdownItem>
-
-              <DropdownItem key="copy">
-                Threads
-              </DropdownItem>
-              <DropdownItem key="edit">
-                Compartir Perfil
-              </DropdownItem>
+              <DropdownItem key="copy">Threads</DropdownItem>
+              <DropdownItem key="edit">Compartir Perfil</DropdownItem>
               <DropdownItem key="delete" className="text-danger" color="danger">
                 papelera
               </DropdownItem>
-
             </DropdownMenu>
-
           </Dropdown>
         </div>
       </div>
 
-      <div className="flex gap-9 ">
-        <HomeIcon className="w-7 stroke-2 stroke-zinc-500 cursor-pointer" />
-        <PhotoIcon className="w-12 stroke-2 stroke-white cursor-pointer bg-blue-600 rounded-full p-3" />
-        <BellIcon className="w-7 stroke-2 stroke-zinc-500 cursor-pointer" />
+      <div className="flex gap-9 items-center ">
+        <Link to="/Home">
+          <HomeIcon className="w-7 stroke-2 stroke-zinc-500 cursor-pointer" />
+        </Link>
+        <Link to="/chats">
+          <ChatIcon className="w-7 stroke-2 stroke-zinc-500 cursor-pointer" />
+        </Link>
+        <Link to="/Home">
+          <BellIcon className="w-7 stroke-2 stroke-zinc-500 cursor-pointer" />
+        </Link>
       </div>
 
       <div className="flex gap-2">
